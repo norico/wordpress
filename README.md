@@ -1,3 +1,3 @@
-# wordpress
+# WordPress
 
-- Initial commit on april 2024
+- Initial commit on 05 april 2024
