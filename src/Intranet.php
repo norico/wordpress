@@ -11,6 +11,6 @@ class Intranet {
 	}
 
 	public function run() {
-
+		$this->plugin->load_text_domain();
 	}
 }
