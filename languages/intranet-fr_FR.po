@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/intranet\n"
-"POT-Creation-Date: 2024-04-09T19:53:23+00:00\n"
-"PO-Revision-Date: 2024-04-09 21:54+0200\n"
+"POT-Creation-Date: 2024-04-09T20:27:21+00:00\n"
+"PO-Revision-Date: 2024-04-09 22:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -22,3 +22,11 @@ msgstr "Intranet"
 #: intranet.php
 msgid "Intranet plugin for WordPress"
 msgstr "Plugin pour un WordPress en intranet"
+
+#: src/Plugin.php:99
+msgid "Missing admin page"
+msgstr "Page d'administration manquante"
+
+#: src/Plugin.php:100
+msgid "Please check your file intranet.php, in /admin directory"
+msgstr "Veuillez vérifier votre fichier intranet.php, dans le répertoire /admin"
