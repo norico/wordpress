@@ -7,14 +7,14 @@ class Intranet {
 	private string $plugin_filename;
     private Plugin $plugin;
 
-
     public function __construct($plugin_filename) {
 		$this->plugin_filename = $plugin_filename;
 		$this->plugin = new Plugin($this->plugin_filename);
-
+		$this->plugin->load_dependencies();
 	}
 
-	public function run() {
+	public function run(): void
+    {
         add_action('plugins_loaded', [$this, 'load_text_domain'], 10);
 	}
 

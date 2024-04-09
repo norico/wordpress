@@ -102,10 +102,43 @@ class Plugin
         echo '</div>';
     }
 
+    /**
+     * load dependencies for plugin. Insert css and js files, depend on WordPress location (front or back).
+     * @param $filename
+     * @return void
+     */
+    public function load_dependencies($filename = null): void
+    {
+        $handle = $filename ?: $this->getSlug();
+        $dir = is_admin() ? 'admin/' : '';
+
+        $filename_css = $this->getDir() . "assets/css/{$dir}{$handle}.css";
+        if (file_exists($filename_css)) {
+            add_action("admin_enqueue_scripts", function() use ($handle) {
+                $this->load_dependencies_css($handle);
+            }, 10);
+        }
+
+        $filename_js = $this->getDir() . "assets/js/{$dir}{$handle}.js";
+        if (file_exists($filename_js)) {
+            add_action("admin_enqueue_scripts", function() use ($handle) {
+                $this->load_dependencies_script($handle);
+            }, 10);
+        }
+    }
+
+    public function load_dependencies_css($handle): void {
+        $dir = is_admin() ? 'admin/': null;
+        wp_enqueue_style($this->getSlug(), $this->getUrl() .'assets/css/{$dir}{$handle}.css' , [], $this->getVersion(), 'all');
+    }
+
+    public function load_dependencies_script($handle): void {
+        $dir = is_admin() ? 'admin/': null;
+        wp_enqueue_script($this->getSlug(), $this->getUrl() .'assets/js/{$dir}{$handle}.js', ['jquery'], $this->getVersion(), '');
+    }
 
 
-
-
+    /* Getters */
 
 
     public function getBasename(): string
@@ -172,4 +205,6 @@ class Plugin
     {
         return $this->network;
     }
+
+
 }
