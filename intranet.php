@@ -2,12 +2,19 @@
 /*
  * Plugin name: Intranet
  * Description: Intranet plugin for WordPress
- * Version: 0.0.1
+ * Version: 1.0.0
+ * Text Domain:         intranet
+ * Domain Path:         /languages
+ * Requires PHP:        7.4
+ * Requires at least:   5.6
+ * Network:             true
+ *
+ * @package             intranet
  */
 
  if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-require __DIR__.('vendor/autoload.php');
-$intranet = new Intranet(__FILE__);
+require_once __DIR__. '/vendor/autoload.php';
+$intranet = new Intranet\Intranet(__FILE__);
 $intranet->run();
