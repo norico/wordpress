@@ -22,7 +22,7 @@ class Plugin
     /**
      * @param string $plugin_filename
      */
-    public function __construct(string $plugin_filename)
+    public function __construct(private string $plugin_filename)
     {
         if( ! function_exists('get_plugin_data') ){
             require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -44,6 +44,7 @@ class Plugin
             $this->wordpress   = $plugin_data['RequiresWP'];
             $this->php         = $plugin_data['RequiresPHP'];
         }
+        $this->load_dependencies();
         $this->create_admin_menu();
 
     }
@@ -77,7 +78,8 @@ class Plugin
         $this->add_admin_menu( $args );
     }
 
-    public function add_admin_menu( array $args ) {
+    public function add_admin_menu( array $args ): void
+    {
         $defaults = array(
             'network' => false,
             'icon' => 'dashicons-admin-generic',
@@ -129,17 +131,21 @@ class Plugin
 
     public function load_dependencies_css($handle): void {
         $dir = is_admin() ? 'admin/': null;
-        wp_enqueue_style($this->getSlug(), $this->getUrl() .'assets/css/{$dir}{$handle}.css' , [], $this->getVersion(), 'all');
+        wp_enqueue_style($this->getSlug(), $this->getUrl() .'assets/css/'.$dir.$handle.'.css' , [], $this->getVersion(), 'all');
     }
 
     public function load_dependencies_script($handle): void {
         $dir = is_admin() ? 'admin/': null;
-        wp_enqueue_script($this->getSlug(), $this->getUrl() .'assets/js/{$dir}{$handle}.js', ['jquery'], $this->getVersion(), '');
+        wp_enqueue_script($this->getSlug(), $this->getUrl() .'assets/js/'.$dir.$handle.'.js', ['jquery'], $this->getVersion(), '');
     }
 
 
     /* Getters */
 
+    public function getFilename(): string
+    {
+        return $this->plugin_filename;
+    }
 
     public function getBasename(): string
     {

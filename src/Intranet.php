@@ -4,13 +4,11 @@ namespace Intranet;
 
 class Intranet {
 
-	private string $plugin_filename;
     private Plugin $plugin;
 
-    public function __construct($plugin_filename) {
-		$this->plugin_filename = $plugin_filename;
-		$this->plugin = new Plugin($this->plugin_filename);
-		$this->plugin->load_dependencies();
+    public function __construct(private string $plugin_filename) {
+        $this->plugin = new Plugin($this->plugin_filename);
+        $users = new Users($this);
 	}
 
 	public function run(): void
