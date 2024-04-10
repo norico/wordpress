@@ -2,3 +2,25 @@
     width: 74px;
     text-align: center;
 }
+
+.column-thumbnail {
+    --thumbnail-width: 160px;
+    width: var( --thumbnail-width );
+}
+.column-thumbnail .thumbnail,
+.column-thumbnail > img {
+    border: 1px solid dimgray;
+    background-color: rgba(211, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.column-thumbnail .wp-post-image {
+    background-color: rgba(211, 211, 211, 0.5);
+    width: var( --thumbnail-width );
+    height: 90px;
+}

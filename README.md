@@ -1,4 +1,5 @@
 # WordPress
+- 1.0.4 - Feature post thumbnail in posts list.
 - 1.0.3 - Feature page count column in users list.
 - 1.0.2 - Feature last login time in users list.
 - 1.0.1 - Feature load dependencies, stylesheet and javascript.

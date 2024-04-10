@@ -9,7 +9,9 @@ class Intranet {
     public function __construct(private string $plugin_filename) {
         $this->plugin = new Plugin($this->plugin_filename);
         $users = new Users($this);
-	}
+	    $edit  = new Edit($this);
+
+    }
 
 	public function run(): void
     {
