@@ -24,3 +24,20 @@
     width: var( --thumbnail-width );
     height: 90px;
 }
+
+#posts-pending ul {
+    margin: 8px -6px 0 -6px;
+}
+
+#posts-pending li {
+    display: grid;
+    grid-template-columns: clamp(160px, calc(2vw + 140px), 200px) auto;
+    column-gap: 10px;
+    color: #646970;
+    padding: 4px 12px;
+}
+
+#posts-pending li:nth-child(odd) {
+    background-color: #f6f7f7;
+}
+

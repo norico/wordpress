@@ -140,6 +140,9 @@ class Plugin
     }
 
 
+
+
+
     /* Getters */
 
     public function getFilename(): string
@@ -212,5 +215,39 @@ class Plugin
         return $this->network;
     }
 
+	public function get_current_user_role(): string
+	{
+		$wp_roles = new \WP_Roles();
+		$current_user = wp_get_current_user();
+		$first_role = $current_user->roles[0];
+		return translate_user_role( $wp_roles->roles[ $first_role ]['name']) ?? __('Unknown', 'default');
+	}
+
+	public  function get_network_details() {
+		$sites = get_sites();
+		$site_objects = array();
+
+		foreach ($sites as $site) {
+			$site_details = get_blog_details($site->blog_id);
+
+			$site_object = new \stdClass();
+			$site_object->blog_id = $site_details->blog_id;
+
+			switch_to_blog($site->blog_id);
+			$site_object->{'posts'} = wp_count_posts('post')->publish;
+			$site_object->{'pages'} = wp_count_posts('page')->publish;
+			restore_current_blog();
+
+
+
+			foreach ($site_details as $key => $value) {
+				$site_object->{$key} = $value;
+			}
+			$site_object->{'user_count'} = count_users( null,  $site_details->blog_id);
+			$site_objects[] = $site_object;
+
+		}
+		return $site_objects;
+	}
 
 }
