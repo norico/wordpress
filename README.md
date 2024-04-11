@@ -1,5 +1,5 @@
 # WordPress
-
+- 1.0.6 - Feature adminbar WordPress menu and account menu.
 - 1.0.5 - Feature dashboard panels.
 - 1.0.4 - Feature post thumbnail in posts list.
 - 1.0.3 - Feature page count column in users list.
