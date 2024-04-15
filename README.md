@@ -1,4 +1,5 @@
 # WordPress
+- 1.0.9 - Bugfix load_dependencies.
 - 1.0.8 - Feature multisite support site id, footer_text.
 - 1.0.7 - Feature login page flex, site logo, remove text and link.
 - 1.0.6 - Feature adminbar WordPress menu and account menu.
