@@ -6,7 +6,7 @@ class Intranet {
 
 	public Plugin $plugin;
 
-    public function __construct(private string $plugin_filename) {
+    public function __construct(private readonly string $plugin_filename) {
         $this->plugin = new Plugin($this->plugin_filename);
         new Users($this);
 	    new Edit($this);
@@ -14,6 +14,7 @@ class Intranet {
 	    new Adminbar($this);
 	    new Login($this);
 	    new Multisite($this);
+	    new RelativeUrl($this);
     }
 
 	public function run(): void
