@@ -12,6 +12,7 @@ class Intranet {
 	    new Edit($this);
 		new Dashboard($this);
 	    new Adminbar($this);
+	    new Login($this);
     }
 
 	public function run(): void

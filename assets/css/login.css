@@ -1,0 +1,11 @@
+body {
+    display: flex;
+}
+#loginform {
+//    display: none;
+}
+#login h1 a, .login h1 a {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 0;
+}
