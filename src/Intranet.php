@@ -13,6 +13,7 @@ class Intranet {
 		new Dashboard($this);
 	    new Adminbar($this);
 	    new Login($this);
+	    new Multisite($this);
     }
 
 	public function run(): void

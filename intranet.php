@@ -2,7 +2,7 @@
 /*
  * Plugin name:         Intranet
  * Description:         Intranet plugin for WordPress
- * Version:             1.0.6
+ * Version:             1.0.8
  * Text Domain:         intranet
  * Domain Path:         /languages
  * Requires PHP:        7.4
